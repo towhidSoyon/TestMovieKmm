@@ -9,6 +9,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import data.model.MovieItem
+import moe.tlaster.precompose.koin.koinViewModel
 import moe.tlaster.precompose.navigation.Navigator
 import navigation.NavigationScreen
 import ui.component.MovieList
@@ -18,9 +19,9 @@ import util.network.DataState
 
 @Composable
 fun HomeScreen(
-    navigator: Navigator,
-    viewModel: NowPlayingViewModel = NowPlayingViewModel()
+    navigator: Navigator
 ) {
+    val viewModel = koinViewModel(NowPlayingViewModel::class)
     LaunchedEffect(true) {
         viewModel.nowPlayingView(1)
     }

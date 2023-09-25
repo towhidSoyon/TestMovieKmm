@@ -21,6 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import moe.tlaster.precompose.koin.koinViewModel
 import moe.tlaster.precompose.navigation.BackHandler
 import moe.tlaster.precompose.navigation.NavOptions
 import moe.tlaster.precompose.navigation.Navigator
@@ -41,7 +42,8 @@ import util.pagingLoadingState
 
 @OptIn(ExperimentalCoroutinesApi::class)
 @Composable
-internal fun App(viewModel: AppViewModel = AppViewModel()) {
+internal fun App() {
+    val viewModel = koinViewModel(AppViewModel::class)
     val navigator = rememberNavigator()
     val isAppBarVisible = remember { mutableStateOf(true) }
     val searchProgressBar = remember { mutableStateOf(false) }
@@ -50,22 +52,6 @@ internal fun App(viewModel: AppViewModel = AppViewModel()) {
         isAppBarVisible.value = true
     }
     MaterialTheme {
-        /*var greetingText by remember { mutableStateOf("Hello, World!") }
-        var showImage by remember { mutableStateOf(false) }
-        Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-            Button(onClick = {
-                greetingText = "Hello, ${getPlatformName()}"
-                showImage = !showImage
-            }) {
-                Text(greetingText)
-            }
-            AnimatedVisibility(showImage) {
-                Image(
-                    painterResource("compose-multiplatform.xml"),
-                    null
-                )
-            }
-        }*/
 
         Scaffold(topBar = {
             if (isAppBarVisible.value.not()){

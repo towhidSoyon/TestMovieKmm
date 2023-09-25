@@ -36,3 +36,13 @@ android {
         jvmToolchain(17)
     }
 }
+
+/*
+dependencies{
+    implementation("io.insert-koin:koin-android:3.4.0")
+    implementation("io.insert-koin:koin-core:3.4.0")
+    implementation("io.insert-koin:koin-androidx-navigation:3.4.0")
+    implementation("io.insert-koin:koin-androidx-compose:3.4.0")
+    testImplementation("io.insert-koin:koin-test-junit4:3.4.0")
+}
+*/

@@ -9,15 +9,18 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import data.model.MovieItem
+import moe.tlaster.precompose.koin.koinViewModel
 import moe.tlaster.precompose.navigation.Navigator
 import navigation.NavigationScreen
 import ui.component.MovieList
 import ui.component.ProgressIndicator
+import ui.popular.PopularViewModel
 import util.AppString
 import util.network.DataState
 
 @Composable
-fun TopRated(navigator: Navigator, viewModel: TopRatedViewModel = TopRatedViewModel()) {
+fun TopRated(navigator: Navigator) {
+    val viewModel = koinViewModel(TopRatedViewModel::class)
     LaunchedEffect(true) {
         viewModel.nowPlayingView(1)
     }

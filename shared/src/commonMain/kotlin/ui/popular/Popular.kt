@@ -9,6 +9,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import data.model.MovieItem
+import moe.tlaster.precompose.koin.koinViewModel
 import moe.tlaster.precompose.navigation.Navigator
 import moe.tlaster.precompose.viewmodel.ViewModel
 import navigation.NavigationScreen
@@ -19,9 +20,9 @@ import util.network.DataState
 
 @Composable
 fun Popular(
-    navigator: Navigator,
-    viewModel: PopularViewModel = PopularViewModel()
+    navigator: Navigator
 ){
+    val viewModel = koinViewModel(PopularViewModel::class)
     LaunchedEffect(true){
         viewModel.nowPlayingView(1)
     }

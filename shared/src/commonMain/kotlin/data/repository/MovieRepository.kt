@@ -1,11 +1,12 @@
 package data.repository
 
+
 import data.remote.ApiImpl
 import kotlinx.coroutines.flow.flow
 import util.network.DataState
 
-class MovieRepository {
-    private val api = ApiImpl()
+class MovieRepository(private val api: ApiImpl) {
+    //private val api : ApiImpl = get()
 
     fun nowPlayingMovie(page:Int) = flow {
         emit(DataState.Loading)

@@ -10,9 +10,9 @@ import kotlinx.coroutines.launch
 import moe.tlaster.precompose.viewmodel.ViewModel
 import util.network.DataState
 
-class NowPlayingViewModel: ViewModel() {
+class NowPlayingViewModel(private val repo : MovieRepository): ViewModel() {
     private val viewModelScope = CoroutineScope(Dispatchers.Main)
-    private val repo = MovieRepository()
+
     val nowPlayingResponse = MutableStateFlow<DataState<List<MovieItem>>?>(DataState.Loading)
 
     fun nowPlayingView(page:Int){

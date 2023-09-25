@@ -50,6 +50,8 @@ sealed class NavigationScreen(
         )
     })
 
+
+
     object TopRatedNav : NavigationScreen("top_rated_screen", title = "Top rated", navIcon = {
         Icon(
             Icons.Filled.Star,

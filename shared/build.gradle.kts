@@ -36,6 +36,12 @@ kotlin {
                 api("io.github.qdsfdhvh:image-loader:1.5.1")
                 api("moe.tlaster:precompose:1.5.1")
                 api("moe.tlaster:precompose-viewmodel:1.5.1")
+
+                api("io.insert-koin:koin-core:3.4.3")
+                api("io.insert-koin:koin-compose:1.0.4")
+
+                api("moe.tlaster:precompose-koin:1.5.1")
+
             }
         }
         val androidMain by getting {
@@ -44,6 +50,7 @@ kotlin {
                 api("androidx.appcompat:appcompat:1.6.1")
                 api("androidx.core:core-ktx:1.10.1")
                 implementation("io.ktor:ktor-client-okhttp:2.3.4")
+
             }
         }
         val iosX64Main by getting

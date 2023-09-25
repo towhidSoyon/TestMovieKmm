@@ -18,9 +18,8 @@ import moe.tlaster.precompose.viewmodel.ViewModel
 import util.network.DataState
 
 @ExperimentalCoroutinesApi
-class AppViewModel: ViewModel() {
+class AppViewModel(private val repo : MovieRepository): ViewModel() {
     private val viewModelScope = CoroutineScope(Dispatchers.Main)
-    private val repo = MovieRepository()
     val searchData: MutableState<DataState<BaseModelV2>?> = mutableStateOf(null)
     @ExperimentalCoroutinesApi
     @FlowPreview

@@ -23,7 +23,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.seiko.imageloader.rememberAsyncImagePainter
 import data.model.moviedetail.MovieDetail
+import moe.tlaster.precompose.koin.koinViewModel
 import moe.tlaster.precompose.navigation.Navigator
+import moe.tlaster.precompose.viewmodel.viewModel
 import navigation.NavigationScreen
 import theme.DefaultBackgroundColor
 import theme.FontColor
@@ -40,9 +42,9 @@ import util.roundTo
 @Composable
 fun MovieDetail(
     navigator: Navigator,
-    movieId:Int,
-    movieDetailViewModel: MovieDetailViewModel = MovieDetailViewModel()
+    movieId:Int
 ){
+    val movieDetailViewModel = koinViewModel(MovieDetailViewModel::class)
     LaunchedEffect(1){
         movieDetailViewModel.movieDetail(movieId)
     }
